@@ -2,28 +2,26 @@ import { useDispatch } from "react-redux";
 import { decrement, increment } from "./redux/features/counter/counter.Slice";
 import { useAppSelector } from "./redux/hook";
 import { Button } from "./components/ui/button";
+import Navbar from "./components/layout/Navbar";
+import { Outlet } from "react-router-dom";
 
 function App() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const { count } = useAppSelector((state) => state.counter);
+  // const { count } = useAppSelector((state) => state.counter);
 
-  const handleIncrement = (amount: number) => {
-    dispatch(increment(amount));
-  };
+  // const handleIncrement = (amount: number) => {
+  //   dispatch(increment(amount));
+  // };
 
-  const handleDecrement = () => {
-    dispatch(decrement());
-  };
+  // const handleDecrement = () => {
+  //   dispatch(decrement());
+  // };
 
   return (
     <>
-      <h1>Counter With Redux</h1>
-      <div>
-        <Button onClick={() => handleIncrement(1)}>increment</Button>
-        <div>{count}</div>
-        <Button onClick={handleDecrement}>decrement</Button>
-      </div>
+      <Navbar></Navbar>
+      <Outlet></Outlet>
     </>
   );
 }
